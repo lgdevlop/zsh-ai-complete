@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/lgdevlop/zsh-ai-complete/compare/v1.0.1...v1.0.3) (2025-04-13)
+
+
+### 🐛 Bug Fixes
+
+* **ci:** 🏷  ensure tag is created in stable release workflow if missing ([edc2e25](https://github.com/lgdevlop/zsh-ai-complete/commit/edc2e256671b721bf0d4f5b95f9b9bc4122f4b5f))
+
 ### [1.0.2](https://github.com/lgdevlop/zsh-ai-complete/compare/v1.1.0-rc.0...v1.0.2) (2025-04-13)
 
 ## [1.1.0-rc.0](https://github.com/lgdevlop/zsh-ai-complete/compare/v1.1.0-beta.0...v1.1.0-rc.0) (2025-04-13)
