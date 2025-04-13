@@ -12,5 +12,3 @@ node_modules/
 Thumbs.db
 ehthumbs.db
 
-# Ignorar pasta de assets se desejar manter limpa
-assets/
