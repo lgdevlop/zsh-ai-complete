@@ -27,5 +27,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Force package.json version from tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "🔖 Forcing package.json version to $VERSION"
+          yarn version --new-version "$VERSION" --no-git-tag-version
+
       - name: Run release (standard-version)
         run: yarn release
