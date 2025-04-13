@@ -33,6 +33,17 @@ jobs:
       - name: Run prerelease with standard-version
         run: yarn release --prerelease beta
 
+      - name: Create tag manually if missing
+        run: |
+          VERSION=$(jq -r .version package.json)
+          TAG="v$VERSION"
+          if ! git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "[WARN] Tag $TAG not found, creating manually..."
+            git tag "$TAG"
+          else
+            echo "[INFO] Tag $TAG already exists."
+          fi
+
       - name: Debug git state
         run: |
           echo ">>> Git log"
