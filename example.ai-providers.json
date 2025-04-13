@@ -1,0 +1,26 @@
+{
+  "openai": {
+    "name": "openai",
+    "url": "https://api.openai.com/v1/chat/completions",
+    "token": "your_openai_api_key",
+    "model": "gpt-4o-mini",
+    "system_message": "You must output exactly five complete zsh commands. No explanations, no comments, no code blocks, no numbering, no blank lines. Output only the commands, one per line.",
+    "output_path": ".choices[0].message.content"
+  },
+  "ollama": {
+    "name": "ollama",
+    "url": "http://localhost:11434/api/chat",
+    "token": "",
+    "model": "qwen2.5-coder:7b",
+    "system_message": "You must output exactly five complete zsh commands. No explanations, no comments, no code blocks, no numbering, no blank lines. Output only the commands, one per line.",
+    "output_path": ".message.content"
+  },
+  "gemini": {
+    "name": "gemini",
+    "url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+    "token": "your_google_api_key",
+    "model": "gemini-2.0-flash-exp",
+    "system_message": "You must output exactly five complete zsh commands. No explanations, no comments, no code blocks, no numbering, no blank lines. Output only the commands, one per line.",
+    "output_path": ".choices[0].message.content"
+  }
+}
