@@ -1,0 +1,33 @@
+{
+  "name": "zsh-ai-complete",
+  "version": "1.0.0",
+  "description": "Zsh plugin to autocomplete and generate terminal commands using AI (OpenAI, Ollama, Gemini, etc.)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lgdevlop/zsh-ai-complete.git"
+  },
+  "author": "Leonardo Gomes <https://github.com/lgdevlop>",
+  "license": "MIT",
+  "keywords": [
+    "zsh",
+    "plugin",
+    "ai",
+    "autocomplete",
+    "fzf",
+    "ollama",
+    "openai",
+    "gemini",
+    "terminal",
+    "zsh-plugin",
+    "command-line"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "19.8.0",
+    "@commitlint/config-conventional": "19.8.0",
+    "husky": "9.1.7"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "lint:commits": "commitlint --from=HEAD~10"
+  }
+}
