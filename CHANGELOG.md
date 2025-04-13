@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-beta.0](https://github.com/lgdevlop/zsh-ai-complete/compare/v1.0.1-beta.4...v1.1.0-beta.0) (2025-04-13)
+
+
+### ✨ Features
+
+* **ci:** 🚀 auto-create GitHub release from tag using CLI ([0c0fc71](https://github.com/lgdevlop/zsh-ai-complete/commit/0c0fc7126d2a7db3ca757d70e065b541dd45ab45))
+
 ### [1.0.1-beta.4](https://github.com/lgdevlop/zsh-ai-complete/compare/v1.1.0-beta.2...v1.0.1-beta.4) (2025-04-13)
 
 
