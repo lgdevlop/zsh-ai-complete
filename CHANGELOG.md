@@ -1,10 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### 1.0.1-beta.0 (2025-04-13)
 
----
+
+### 👷 Continuous Integration
+
+* **release:** 🧹 deprecate legacy release.yml in favor of split workflows ([bb28829](https://github.com/lgdevlop/zsh-ai-complete/commit/bb2882958aa092984b6726359e53adcb669c9dc4))
 
 ## [1.0.0] - 2025-04-13
 
