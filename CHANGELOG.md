@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-rc.0](https://github.com/lgdevlop/zsh-ai-complete/compare/v1.1.0-beta.0...v1.1.0-rc.0) (2025-04-13)
+
+
+### ♻️ Code Refactoring
+
+* **ci:** 🧪 convert beta release workflow to manual with branch and suffix input ([1df7ad2](https://github.com/lgdevlop/zsh-ai-complete/commit/1df7ad2fef1d3ffccc79f63cbf941b18d3b83645))
+* **ci:** 🚀 convert stable release workflow to manual with version and branch input ([8cd054a](https://github.com/lgdevlop/zsh-ai-complete/commit/8cd054a61280336c2de9938c2d5a3adfab81836d))
+
 ## [1.1.0-beta.0](https://github.com/lgdevlop/zsh-ai-complete/compare/v1.0.0...v1.1.0-beta.0) (2025-04-13)
 
 
