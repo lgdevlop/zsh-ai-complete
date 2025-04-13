@@ -1,0 +1,43 @@
+name: Release Stable
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  stable-release:
+    name: Release from stable tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Set package.json version based on tag
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "🔖 Setting package.json version to $VERSION"
+          yarn version --new-version "$VERSION" --no-git-tag-version
+
+      - name: Run stable release
+        run: yarn release
+
+      - name: Push version bump and changelog
+        run: |
+          git push origin main --follow-tags
