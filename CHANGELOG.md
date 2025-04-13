@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.1-beta.1 (2025-04-13)
+
+
+### 🐛 Bug Fixes
+
+* **ci:** 🛠  ensure git push and tag from standard-version in beta workflow ([5794bbb](https://github.com/lgdevlop/zsh-ai-complete/commit/5794bbb5921809a1ccc6f848cafa1d98fc442886))
+
 ### 1.0.1-beta.0 (2025-04-13)
 
 
