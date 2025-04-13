@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.1-beta.2 (2025-04-13)
+
+
+### 🐛 Bug Fixes
+
+* **release:** 🏷  enable automatic tag creation in beta releases ([4b5a820](https://github.com/lgdevlop/zsh-ai-complete/commit/4b5a82079ce85dc875b57ea15bb7edbcf579d6b0))
+
 ### 1.0.1-beta.1 (2025-04-13)
 
 

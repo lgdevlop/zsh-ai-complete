@@ -1,6 +1,6 @@
 {
   "name": "zsh-ai-complete",
-  "version": "1.0.1-beta.1",
+  "version": "1.0.1-beta.2",
   "description": "Zsh plugin to autocomplete and generate terminal commands using AI (OpenAI, Ollama, Gemini, etc.)",
   "repository": {
     "type": "git",
