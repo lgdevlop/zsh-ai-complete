@@ -39,27 +39,22 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run prerelease with standard-version
+      - name: Create prerelease version with Changesets
         run: |
-          yarn release --prerelease ${{ github.event.inputs.prerelease_suffix }}
+          yarn changeset version --snapshot ${{ github.event.inputs.prerelease_suffix }}
 
-      - name: Create tag manually if missing
+      - name: Create beta tag if missing
         run: |
           VERSION=$(jq -r .version package.json)
           TAG="v$VERSION"
           if ! git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "[WARN] Tag $TAG not found, creating manually..."
+            echo "[INFO] Creating prerelease tag $TAG manually..."
+            git add .
+            git commit -m "chore(release): $VERSION"
             git tag "$TAG"
           else
             echo "[INFO] Tag $TAG already exists."
           fi
-
-      - name: Debug git state
-        run: |
-          echo ">>> Git log"
-          git log -1
-          echo ">>> Tags"
-          git tag -l
 
       - name: Push version and tags
         run: |
@@ -71,4 +66,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(jq -r .version package.json)
-          gh release create "v$VERSION" --title "v$VERSION" --notes "Automated prerelease (${VERSION}) from branch ${{ github.event.inputs.branch }}"
+          gh release create "v$VERSION" --title "v$VERSION" --notes "Automated prerelease for $VERSION from branch ${{ github.event.inputs.branch }}"
