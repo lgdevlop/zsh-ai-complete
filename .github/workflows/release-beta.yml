@@ -31,6 +31,14 @@ jobs:
       - name: Run prerelease with standard-version
         run: yarn release --prerelease beta
 
-      - name: Push version bump and changelog
+      - name: Debug git state
         run: |
-          git push origin main --follow-tags
+          echo ">>> Git log"
+          git log -1
+          echo ">>> Tags"
+          git tag -l
+
+      - name: Push version and tags
+        run: |
+          git push origin HEAD:main
+          git push origin --tags
