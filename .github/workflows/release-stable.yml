@@ -38,27 +38,26 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Set package.json version from input
+      - name: Apply version from input using changesets
+        run: |
+          yarn changeset version --snapshot release
+          jq --arg VERSION "${{ github.event.inputs.version }}" '.version = $VERSION' package.json > package.json.tmp
+          mv package.json.tmp package.json
+
+      - name: Create stable tag if missing
         run: |
           VERSION=${{ github.event.inputs.version }}
-          echo "🔖 Setting version to $VERSION"
-          yarn version --new-version "$VERSION" --no-git-tag-version
-
-      - name: Run standard release
-        run: yarn release
-
-      - name: Create tag manually if missing
-        run: |
-          VERSION=$(jq -r .version package.json)
           TAG="v$VERSION"
           if ! git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "[WARN] Tag $TAG not found, creating manually..."
+            echo "[INFO] Creating tag $TAG manually..."
+            git add .
+            git commit -m "chore(release): $VERSION"
             git tag "$TAG"
           else
             echo "[INFO] Tag $TAG already exists."
           fi
 
-      - name: Push version bump and tags
+      - name: Push changes and tags
         run: |
           git push origin HEAD:${{ github.event.inputs.branch }}
           git push origin --tags
