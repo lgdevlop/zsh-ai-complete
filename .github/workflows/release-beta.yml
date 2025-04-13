@@ -39,9 +39,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Create prerelease version with Changesets
-        run: |
-          yarn changeset version --pre ${{ github.event.inputs.prerelease_suffix }}
+      - name: Enter prerelease mode
+        run: yarn changeset pre enter ${{ github.event.inputs.prerelease_suffix }}
+
+      - name: Apply prerelease version with Changesets
+        run: yarn changeset version
 
       - name: Create beta tag if missing
         run: |
