@@ -1,8 +1,16 @@
 name: Release Beta
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to release from"
+        required: true
+        default: "main"
+      prerelease_suffix:
+        description: "Prerelease suffix (e.g., beta, alpha, rc)"
+        required: true
+        default: "beta"
 
 permissions:
   contents: write
@@ -16,6 +24,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.inputs.branch }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,7 +40,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Run prerelease with standard-version
-        run: yarn release --prerelease beta
+        run: |
+          yarn release --prerelease ${{ github.event.inputs.prerelease_suffix }}
 
       - name: Create tag manually if missing
         run: |
@@ -53,7 +63,7 @@ jobs:
 
       - name: Push version and tags
         run: |
-          git push origin HEAD:main
+          git push origin HEAD:${{ github.event.inputs.branch }}
           git push origin --tags
 
       - name: Create GitHub Release
@@ -61,4 +71,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(jq -r .version package.json)
-          gh release create "v$VERSION" --title "v$VERSION" --notes "Automated pre-release for v$VERSION"
+          gh release create "v$VERSION" --title "v$VERSION" --notes "Automated prerelease (${VERSION}) from branch ${{ github.event.inputs.branch }}"
