@@ -41,7 +41,7 @@ jobs:
 
       - name: Create prerelease version with Changesets
         run: |
-          yarn changeset version --snapshot ${{ github.event.inputs.prerelease_suffix }}
+          yarn changeset version --pre ${{ github.event.inputs.prerelease_suffix }}
 
       - name: Create beta tag if missing
         run: |
