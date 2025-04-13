@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- 3efb9ca: Base version adjustment to prepare for new beta release cycle
+
 ## 0.0.0-alpha-20250413233930
 
 ### Patch Changes
