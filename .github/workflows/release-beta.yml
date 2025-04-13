@@ -55,3 +55,10 @@ jobs:
         run: |
           git push origin HEAD:main
           git push origin --tags
+
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(jq -r .version package.json)
+          gh release create "v$VERSION" --title "v$VERSION" --notes "Automated pre-release for v$VERSION"
