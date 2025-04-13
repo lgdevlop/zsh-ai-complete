@@ -1,38 +1,19 @@
-name: Release & Changelog
+name: Release
 
 on:
   push:
-    branches: [main]
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   release:
-    name: Generate Changelog
+    name: Legacy Compatibility
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Configure Git identity
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Force package.json version from tag
-        if: startsWith(github.ref, 'refs/tags/v')
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/v}
-          echo "🔖 Forcing package.json version to $VERSION"
-          yarn version --new-version "$VERSION" --no-git-tag-version
-
-      - name: Run release (standard-version)
-        run: yarn release
+      - name: Skip legacy release workflow
+        run: echo "This release workflow has been deprecated in favor of release-beta.yml and release-stable.yml."
+        shell: bash
