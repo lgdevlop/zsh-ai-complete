@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2-beta.0
+
+### Patch Changes
+
+- ab28a48: Start pre-release cycle using Changesets with beta version.
+
 ## 1.0.1
 
 ### Patch Changes

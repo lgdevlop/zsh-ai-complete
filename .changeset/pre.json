@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "zsh-ai-complete": "1.0.1"
+  },
+  "changesets": [
+    "tidy-wings-juggle"
+  ]
+}
