@@ -16,6 +16,7 @@ permissions:
 
 jobs:
   stable-release:
+    if: github.actor == 'lgdevlop'
     name: Release from stable tag
     runs-on: ubuntu-latest
 

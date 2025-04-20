@@ -17,6 +17,7 @@ permissions:
 
 jobs:
   beta-release:
+    if: github.actor == 'lgdevlop'
     name: Generate Beta Release
     runs-on: ubuntu-latest
 
